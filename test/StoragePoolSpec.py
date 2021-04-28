@@ -1,4 +1,5 @@
 import sys
+
 # Add nodes directory to import them all
 sys.path.append('/home/nacho/Programming/Docker/CDS/cinvestav-ds-interpreter/')
 sys.path.append('/home/nacho/Programming/Docker/CDS/cinvestav-ds-interpreter/nodes')
