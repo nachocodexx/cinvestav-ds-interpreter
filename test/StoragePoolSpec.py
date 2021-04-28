@@ -1,13 +1,15 @@
-import unittest 
 import sys
-from unittest import TestCase
+# Add nodes directory to import them all
 sys.path.append('/home/nacho/Programming/Docker/CDS/cinvestav-ds-interpreter/')
-from storage_pool import StoragePool
-from storage_node import StorageNode
-from metadata_node import MetadataNode
-from compression_node import CompressionNode
-from metadata_node import MetadataNode
-from result_node import ResultNode
+sys.path.append('/home/nacho/Programming/Docker/CDS/cinvestav-ds-interpreter/nodes')
+import unittest 
+from unittest import TestCase
+from nodes.storage_pool import StoragePool
+from nodes.storage_node import StorageNode
+from nodes.metadata_node import MetadataNode
+from nodes.compression_node import CompressionNode
+from nodes.metadata_node import MetadataNode
+from nodes.result_node import ResultNode
 from _utils import createCompressionNode,createStorageNode,createNodes,createStoragePool,createMetadataNodes,runNodes
 import docker
 client = docker.from_env()
@@ -41,7 +43,7 @@ class StoragePoolSpec(TestCase):
         print(rs00.environment)
         self.assertTrue(True)
 
-    #@unittest.skip("SKIPPED")
+    @unittest.skip("SKIPPED")
     def test_init(self):
 
         sp00 = createStoragePool(0,num_storage_nodes=5,num_compression_nodes=5,network="mynet2",replication_factor=3)
